@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#container{
+    width: 65%;
+    height: 500px;
+    background-color: rgb(69, 141, 141);
+    margin: 40px auto;
+    color: floralwhite;
+    min-width: 400px;
+    
+    
+}
+header h1{
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 10px;
+    font-weight: bold;
+    padding: 20px;
+    border-bottom: 1px solid white;
+}
+
+#etoiles{
+    font-size: 46px;
+    font-weight: bold;
+    letter-spacing: 25px;
+    text-align: center;
+    padding: 20px;
+    color: rgb(236, 240, 6);
+    border-bottom: 1px solid white;
+}
+
+#tentez{
+    padding: 30px 0;
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    color: rgb(212, 204, 212);
+    width: 100%;
+    text-align: center;
+}
+
+#tentez #lettre{
+    width: 6%;
+    height: 30px;
+    font-size: 40px;
+    background-color: black;
+    color: rgb(255, 251, 4);
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 5px;
+    border-radius: 10px;
+}
+
+.bout{
+    width: 62%;
+    height: 40px;
+    background-color: tomato;
+    color: white;
+    margin-top: 20px;
+    font-size: 30px;
+    letter-spacing: 20px;
+    font-weight: bold;
+    border-radius: 20px;
+}
+
+#liste{
+    color: rgb(31, 23, 22);
+    font-size: 20px;
+    font-weight: bold;
+    
+}
+
+#lettres{
+    letter-spacing: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    float: left;
+    
+    
+}
+
+#nbErreurs{
+    margin-left: 400px;
+    font-weight: bold;
+}

@@ -1,0 +1,103 @@
+
+var mots = ["Apocalypse","Attraction","Aventurier","Bouillotte",
+            "Citrouille","Controverse","Coquelicot","Tomahawk",
+            "Toujours","Gangster","Gothique","Qualification",
+            "Protozoaire","Hochet","Hormis","Humour","Billard",
+            "Bretzel","Iceberg","Javelot"
+            ];
+var mot = ""
+var nbErreurs = 0
+var lettres = ""
+var motCache = ""
+
+function choisirMot()
+{
+    var i = Math.floor(Math.random() * Math.floor(20))
+    mot = mots[i]
+    afficheMotCache(mot);
+    return mot;
+}
+
+function afficheMotCache(mot)
+{
+    var i;
+    for(i=0; i<mot.length; i++){
+        motCache = motCache + "*";
+    }
+    document.getElementById("motCache").innerHTML = motCache;
+}
+
+function testerLettreDansMot(lettre, chaine){
+    if(chaine.length == 0 || lettre=="") return false;
+    if(chaine.indexOf(lettre)!=-1)  return true;
+    else return false;
+    
+ }
+
+ function remplacerLettres(leMot, lesLettres){
+    leMot = mot.toLowerCase();
+    motCache = document.getElementById("motCache").innerHTML;
+    var i, j;
+    for(i=0; i<leMot.length; i++){
+        for(j=0; j<lesLettres.length; j++){
+            if(lesLettres.charAt(j) == leMot.charAt(i)){
+               motCache = motCache.substr(0,i)+lesLettres.charAt(j)+motCache.substr(i+1);
+               break;
+            }             
+        }                   
+    }  
+    document.getElementById("motCache").innerHTML = motCache;
+    return motCache;
+ }
+
+
+ function recupererNouvelleLettre(lettres){
+    var lettre = document.getElementById("lettre").value.toLowerCase();
+    if(lettre!=null && lettre!=""){
+        if(testerLettreDansMot(lettre, lettres)){
+            alert("Lettre déjà testée, veuillez saisir une nouvelle lettre.");
+            lettre = prompt("Lettre déjà testée, veuillez saisir une nouvelle lettre.");
+            while(testerLettreDansMot(lettre, lettres)==true){
+                lettre = prompt("Lettre déjà testée, veuillez saisir une nouvelle lettre.");
+            }
+            lettres = lettres + lettre;
+        }else{
+            lettres = lettres + lettre;
+        }
+    }else{
+        alert("Il faut saisir une lettre !!");
+        lettre = prompt("Veuillez entrer une lettre SVP !!");
+        while(testerLettreDansMot(lettre, lettres)==true){
+            lettre = prompt("Lettre déjà testée, veuillez saisir une nouvelle lettre.");
+        }  
+        lettres = lettres + lettre;
+    }
+    
+    document.getElementById("lettres").innerHTML += lettre;
+    motCache = remplacerLettres(motCache, lettres);
+    document.getElementById("motCache").innerHTML = motCache;
+    lettres = document.getElementById("lettres").innerHTML;
+    document.getElementById("lettre").value = "";
+    document.getElementById("lettre").focus();
+    //alert(motCache+" "+mot);
+    if(mot.indexOf(lettre) == -1) nbErreurs++;
+    
+    dessinerPendu(nbErreurs);
+    return lettre;
+ }
+
+ function dessinerPendu(nbErreurs){
+
+    document.getElementById("nbErreurs").innerHTML = "Vous avez " + nbErreurs + " Erreur(s)";
+    if(nbErreurs==8 && motCache != mot.toLowerCase()){
+        alert("Désolé vous avez perdu !!!");
+        document.getElementById("lettre").remove();
+        document.getElementById("tentez").innerHTML = "Perdu !!";
+    }
+
+    if(motCache == mot.toLowerCase()) {
+        alert("Bravo vous avez gagné en " + nbErreurs + " erreurs");
+        document.getElementById("lettre").remove();
+        document.getElementById("tentez").innerHTML = "Bravo !!";
+    }
+}

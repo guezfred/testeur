@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    function dessiner() {
+        var canevas = document.getElementById('canevas');
+        if (canevas.getContext) {
+          var ctx = canevas.getContext('2d');
+          // Triangle filaire
+          ctx.beginPath();
+          
+          ctx.moveTo(50, 150);
+          ctx.lineTo(150, 150);
+          ctx.moveTo(100, 150);
+          ctx.lineTo(100, 30);
+          ctx.moveTo(100, 150);
+          ctx.lineTo(100, 30);
+          ctx.moveTo(100, 30);
+          ctx.lineTo(150, 30);
+          ctx.moveTo(150, 50);
+          ctx.arc(150, 50, 10, 0, 2 * Math.PI);
+          ctx.moveTo(150, 50);
+          ctx.lineTo(150, 30);
+          ctx.moveTo(150, 60);
+          ctx.lineTo(150, 120);
+          ctx.moveTo(125, 80);
+          ctx.lineTo(175, 80);
+          ctx.closePath();
+          ctx.stroke();
+        //  
+        //ctx.lineTo(45, 125);
+         
+        }
+      }
+    </script>
+        </script>
+</head>
+<body>
+    <canvas id="canevas"></canvas><button id="test" onclick="dessiner()"> Aller</button>
+
+<script>
+tester();
+
+</script>
+
+
+<script src="pendu2.js"></script>
+</body>
+</html>

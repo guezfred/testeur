@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script src="pendu.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+   
+    
+
+    <div class="container">
+        <h1>Trouvez le mot caché : </h1>
+        <div class="texte1">mot mystère : </div>
+        <input class="motEt"  id = "motEt" type="text">
+        <p class="texte2">Entrez une lettre : 
+            <input class="lettre" type="text" name="lettre" id="lettre" maxlength="1" onkeyup="remplacerLettres(mot, lettres)">
+        </p>
+        
+       Liste des lettres déjà utilisées :  <input class="tentatives" type="text" name="tentatives" id="tentatives">
+    </div>
+
+
+    <script>
+        lettres = "";
+        mot =  choisirMot();
+        alert(mot);
+        motEtoiles = afficheEtoiles(mot);
+        document.getElementById("motEt").value = motEtoiles;
+        var i;
+        </script>
+</body>
+</html>

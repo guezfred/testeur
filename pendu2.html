@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style2.css">
+    <script src="pendu2.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <section id="container">
+        <header>
+            <h1>LE JEU DU PENDU</h1>
+        </header>
+        <section id="etoiles">
+            <p id="motCache"></p>
+        </section>  
+        <p id="tentez">Tentez une lettre : <input type="text" id="lettre" maxlength="1"> <button class="bout" onclick="lettres = lettres + recupererNouvelleLettre(lettres)">Verifier</button></p>
+        <section id="erreurs">
+            <p id="liste">Liste des lettres dèjà testées : </p>
+            <span id="lettres"></span>
+        
+            <p id="nbErreurs">test</p>
+        </section>
+        <script>
+        mot = choisirMot(); 
+        document.getElementById("lettre").focus();
+        </script>
+    </section>
+    
+</body>
+</html>
